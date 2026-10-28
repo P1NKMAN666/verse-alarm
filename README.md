@@ -1,40 +1,49 @@
-# Verse Alarm — Android beta
+# Rise & Verse — Android beta
 
-Offline Bible alarm prototype. Type the displayed verse exactly to complete an alarm.
+**[Download for Android — v0.2.0](https://github.com/P1NKMAN666/verse-alarm/raw/refs/heads/main/downloads/RiseAndVerse-0.2.0-debug.apk)**
 
-## Download
+[Tagalog installation and update guide](INSTALL-TAGALOG.md)
 
-**[Download for Android — v0.1.0 beta](https://github.com/P1NKMAN666/verse-alarm/raw/refs/heads/main/downloads/VerseAlarm-0.1.0-debug.apk)**
+APK: 188,507 bytes. Android 8.0 or newer. Install over the old Verse Alarm app to retain alarms/settings; the application ID and signing key are unchanged.
 
-[Tagalog installation guide](INSTALL-TAGALOG.md)
+## New in 0.2.0
 
-APK size: 203,164 bytes (about 200 KB). Android 8.0 or newer.
+- App name: **Rise & Verse**.
+- Copy the entire displayed Bible verse, followed by **one space and its Bible reference**. Capital letters, punctuation and spaces must match exactly.
+- Alarm time uses **scroll wheels or direct numeric typing**, in 24-hour format.
+- Removing the app's Recent Apps task keeps ringing active. A system-held backup can restore an unfinished alarm if its process is killed.
+- Snooze and correct dismissal cancel recovery. An old recovery cannot restart a completed or snoozed occurrence.
+- HyperOS setup instructions now cover battery restrictions, Background autostart and lock-screen notifications.
 
 ## Features
 
-- 1,095 matched English/Tagalog verse pairs; 365 per Easy, Moderate and Hard difficulty.
-- Offline operation, no account or login.
-- Multiple alarms with repeat weekdays.
+- 1,095 offline English/Tagalog verse pairs: 365 per Easy, Moderate and Hard.
+- No login or account. Multiple alarms and repeat weekdays.
 - Global language, difficulty and device built-in sound settings.
-- Exact verse typing, including case, spaces and punctuation; corrections allowed.
 - One five-minute snooze per alarm occurrence.
-- First successful alarm publishes the daily verse. All alarms share the day's challenge.
-- Daily-verse lock-screen notification and home-screen widget.
+- First successful dismissal publishes the daily verse; all alarms share the day's challenge.
+- Lock-screen verse notification and home-screen widget. No kiosk/device-owner setup.
 
 ## Testing status
 
-Debug-signed prototype, not a Play Store release. Android SDK 36 emulator tests passed for scheduled delivery, foreground notification, snooze and typing dismissal. Five scheduling unit tests passed; Android lint reports zero errors.
+Debug-signed testing build, not a Play Store release.
 
-**Still needs physical Redmi Pad SE testing**, especially HyperOS battery restrictions, audible locked-screen alarms and widget behavior. Notifications can be hidden/dismissed by system settings. Apps cannot prevent force-stop, shutdown or system volume changes.
+Passed: five scheduling unit tests, content checks, Android lint (zero errors), emulator UI tests for scroll/type time entry and exact verse-plus-reference dismissal, task removal during ringing, snooze and recovery cancellation.
+
+A separate emulator test stopped the ringing service and killed the process with the screen asleep. The backup restored the same alarm/verse in **27.8 seconds**, with a new foreground service and alarm MediaPlayer in started state.
+
+**Physical Redmi Pad SE / HyperOS testing is still needed.** A process kill can cause a sound gap during recovery. Force stop, shutdown, denied permissions or vendor restrictions can prevent recovery; the app cannot guarantee uninterrupted sound. Notification visibility is controlled by the device/user. See the installation guide for recommended HyperOS settings.
 
 ## Content and privacy
 
-English KJV and Tagalog Ang Biblia 1905 digital texts sourced from [Scrollmapper](https://github.com/scrollmapper/bible_databases). The length-balanced collection still needs editorial and territory-specific translation redistribution review before store publication. [Content notices](CONTENT-NOTICE.txt).
+English KJV and Tagalog Ang Biblia 1905 digital texts are sourced from [Scrollmapper](https://github.com/scrollmapper/bible_databases). The collection still needs editorial and territory-specific redistribution review before store publication. [Content notices](CONTENT-NOTICE.txt).
 
-No login, INTERNET permission, analytics or app cloud backup. App data stays on-device.
+No login, INTERNET permission, analytics or app cloud backup. Data stays on-device.
 
-This repository currently hosts the APK and installation information.
+This repository hosts the APK and installation information.
 
 ## Verify download
 
-SHA-256: `AD1F2E5F87E74B25A7391D40EE6E1C75600652BF3BA9827D0C48C4097F855EFC`
+SHA-256: `f4435526c66d9966438c20282c8b627e1c71fc9e3e9d0e0b25477f140930a2c6`
+
+[Previous 0.1.0 prototype](downloads/VerseAlarm-0.1.0-debug.apk)
